@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.15)
+
+project(build_job)
+
+set(CMAKE_CXX_STANDARD 14)
+
+
+
+
+
+# Create your executable target (with a different name).
+
+add_executable(rotapro3_exe src/main.cpp)
