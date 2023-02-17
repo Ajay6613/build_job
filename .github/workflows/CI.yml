@@ -1,12 +1,15 @@
-name: CI
+name: Execute Shell Script
 
-on: [push] 
+on:
+  push:
+    branches:
+      - main 
 
 jobs:
-    run-shellscript-file:
-      runs-on: ubuntu-latest                
-      steps: 
-          - name: Checkout code
-          - uses: actions/checkout@v2            
-          - name: Run a one-line script               
-             run: ./name.sh
+  execute_script:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout repository
+       uses: actions/checkout@v2
+     - name: Execute shell script
+        run: ./name.sh
