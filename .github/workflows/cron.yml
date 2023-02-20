@@ -13,4 +13,3 @@ jobs:
         
       - name: Run script
         run: sh script.sh
-      
