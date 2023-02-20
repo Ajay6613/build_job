@@ -11,9 +11,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: Set time zone to IST
-        run: sudo timedatectl set-timezone Asia/kolkata
-        
       - name: Run script
         run: sh script.sh
       
