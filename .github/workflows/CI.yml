@@ -1,6 +1,8 @@
 name: CI
 
-on: [push]
+on:
+  schedule:
+    - cron: '*/1 * * * *'
 
 jobs:
    run-shellscript:
@@ -11,4 +13,4 @@ jobs:
      - name: Run sh file
        run: chmod +x name.sh
      - name: Run file
-       run: ./name.sh
+       run: sh name.sh
