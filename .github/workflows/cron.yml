@@ -1,0 +1,19 @@
+name: Cron job
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set time zone to IST
+        run: sudo timedatectl set-timezone Asia/kolkata
+        
+      - name: Run script
+        run: sh script.sh
+      
