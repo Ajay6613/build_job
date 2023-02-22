@@ -19,3 +19,4 @@ jobs:
           subject: 'Github Actions Notification'
           body: 'A new commit has been pushed to the main branch.'
           to: 'prathibha.naik1661@cientra.com,hari.prasad1660@cientra.com'
+          from: 'GitHub Actions <noreply@github.com>'
