@@ -1,23 +1,24 @@
-name: Send email notification
-
+name: My Workflow
 on:
   push:
     branches:
       - main
-
 jobs:
-  send_email_notification:
+  my-job:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
       - name: Send email notification
         uses: dawidd6/action-send-mail@v2
         with:
-          node-version: '16.x'
           server_address: smtp.gmail.com
           server_port: 465
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: 'Github Actions Notification'
           body: 'A new commit has been pushed to the main branch.'
-          to: 'prathibha.naik1661@cientra.com,hari.prasad1660@cientra.com'
+          to: 'user@example.com'
           from: 'GitHub Actions <noreply@github.com>'
