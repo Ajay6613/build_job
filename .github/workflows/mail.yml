@@ -7,10 +7,6 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16.x'
       - name: Send email notification
         uses: dawidd6/action-send-mail@v2
         with:
@@ -21,4 +17,4 @@ jobs:
           subject: 'Github Actions Notification'
           body: 'A new commit has been pushed to the main branch.'
           to: 'prathibha.naik1661@cientra.com,hari.prasad1660@cientra.com'
-          from: 'GitHub Actions <noreply@github.com>'
+          from: 'ajaykarthick158@gmail.com'
