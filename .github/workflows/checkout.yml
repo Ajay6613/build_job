@@ -1,4 +1,5 @@
-name: Execute Batch File on Self-Hosted Runner 
+name: Execute Batch File on Self-Hosted Runner
+
 on:
   push:
     branches:
