@@ -1,12 +1,20 @@
-name: Execute Batch File on Self-Hosted Runner on:
-  push:
-    branches:
-      - main
-env: 
-  GIT_SSL_NO_VERIFY: true jobs:
-  execute_batch_file:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2       - name: Execute Batch File
-        run: C:\actions-runner\_work\Actions-Murali\Actions-Murali\CMS\unit1\Box.bat
+name: Execute Batch File on Self-Hosted Runner 
+
+on:
+  push:
+    branches:
+      - main
+env:
+  GIT_SSL_NO_VERIFY: true
+  
+jobs:
+  execute_batch_file:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        
+      - name: Execute Batch File
+        run: F:\actions-runner
+  
+  
