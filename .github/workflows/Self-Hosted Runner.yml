@@ -15,6 +15,6 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Execute Batch File
-        run: F:\actions-runner
+        run: F:\actions-runner\_work\build_job\build_job\CMS\unit1\Box.bat
   
   
