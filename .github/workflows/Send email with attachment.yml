@@ -3,7 +3,7 @@ name: Send email with attachment
 on:
   push:
     branches:
-      - main
+     - main
 
 jobs:
   send-email:
