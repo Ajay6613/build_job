@@ -1,0 +1,10 @@
+name: Run Batch File Every Minute
+
+on: [push] 
+
+jobs:
+  run-batch-file:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
