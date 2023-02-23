@@ -1,0 +1,12 @@
+name: Execute Batch File on Self-Hosted Runner 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  execute_batch_file:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
