@@ -1,38 +1,38 @@
 name: Send email with attachment
 on:
-  push:
-    branches:
-      - main
+  push:
+    branches:
+      - main
 jobs:
-  send-email:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Authenticate with GitHub
-        uses: actions/checkout@v2
-        with:
-         token: ${{ secrets.ACCESS_TOKEN }}
-      - name: Report
-        run: |
-          cp /home/new/Testreport.txt /home/new/actions-runner/Praveen_GitHub/Praveen/Praveen/Reports/
-      - name: Commit and push changes
-        run: |
-          git config --global user.name 'praveenrasu'
-          git config --global user.email 'spraveenrasu@gmail.com'
-          git add /home/new/actions-runner/Praveen_GitHub/Praveen/Praveen/.
-          git commit -m "Committing report changes"
-          git push
-      - name: Send email
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: Email with attachment
-          body: |
-            This email contains an attachment.
-          from: No-Reply
-          to: praveen.kumar1463@cientra.com
-          attachments: 'Testreport.txt'
+  send-email:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Authenticate with GitHub
+        uses: actions/checkout@v2
+        with:
+         token: ${{ secrets.ACCESS_TOKEN }}
+      - name: Report
+        run: |
+          cp /home/new/combined.txt /home/new/actions-runner/_work/build_job/build_job
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'Ajay6613'
+          git config --global user.email 'ajaykarthick158@gmail.com'
+          git add /home/new/actions-runner/_work/build_job/build_job/.
+          git commit -m "Committing report changes"
+          git push
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: Email with attachment
+          body: |
+            This email contains an attachment.
+          from: No-Reply
+          to: ajaykarthick158@gmail.com
+          attachments: 'combined.txt'
