@@ -1,16 +1,17 @@
-name: Execute TPT Batch File and Send Email Notification 
+name: Execute TPT Batch File and Send Email Notification
+
 on:
-  push:
-    branches:
-      - main
+  push:
+    branches:
+      - main
 
 jobs:
-  execute_tpt:
-    runs-on: windows
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-        
+  execute_tpt:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
       - name: Execute TPT Batch File
-        run: F:\actions-runner\_work\build_job\build_job\TPT\Automation.bat
-        
+        run: F:\actions-runner\_work\build_job\build_job\TPT\Automation.bat
+     
