@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-env:
-  GIT_SSL_NO_VERIFY: true
   
 jobs:
   execute_batch_file:
