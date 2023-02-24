@@ -6,7 +6,7 @@ on:
 
 jobs:
   execute_tpt:
-    runs-on: self-hosted
+    runs-on: windows
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
