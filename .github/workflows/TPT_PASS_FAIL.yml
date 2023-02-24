@@ -1,0 +1,42 @@
+name: Email-failure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  execute_tpt_batch_files:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      
+      - name: Execute TPT Batch Files
+        run: F:\actions-runner\_work\build_job\build_job\CMS\unit1\Box.bat
+
+      - name: Send Email on Success
+        if: success()
+        uses: dawidd6/action-send-mail@v3.0.0
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 'TPT batch executed successfully'
+          body: 'The TPT batch file has been executed successfully. You can check the workflow results at ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}.'
+          to: muralidhar.reddy1655@cientra.com, praveen.kumar1463@cientra.com, parimi.venkatarao1662@cientra.com, hari.prasad1660@cientra.com
+          from: no-reply-no-reply
+
+      - name: Send Email on Failure
+        if: failure()
+        uses: dawidd6/action-send-mail@v3.0.0
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: 'TPT batch execution failed'
+          body: 'The TPT batch file failed to execute. You can check the workflow results at ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}.'
+          to: ajaykarthick.murugan1461@cientra.com
+          from: no-reply-no-reply
