@@ -25,7 +25,7 @@ jobs:
         run: |
           git config --global user.name 'Ajay6613'
           git config --global user.email 'ajaykarthick158@gmail.com'
-          git add F:\actions-runner\_work\build_job\build_job\TPT\Reports\.
+          git add F:\actions-runner\_work\build_job\build_job\TPT\Reports\*
           git commit -m "Committing report changes"
           git push
           
