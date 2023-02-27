@@ -17,7 +17,7 @@ jobs:
         
       - name: Report
         run: |
-          cp F:\TPT_Examples\01 Getting Started\Reports\. F:\actions-runner\_work\build_job\build_job\TPT\Reports\
+          cp "F:\TPT_Examples\01 Getting Started\Reports\*" "F:\actions-runner\_work\build_job\build_job\TPT\Reports\"
           with:
           token: ${{ secrets.ACCESS_TOKEN }}
           
