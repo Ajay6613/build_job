@@ -20,9 +20,7 @@ jobs:
       - name: Report
         run: |
           cp "F:\TPT_Examples\01 Getting Started\Reports\*" "F:\actions-runner\_work\build_job\build_job\TPT\Reports\"
-          cp "F:\TPT_Examples\01 Getting Started\Reports\figures\*" "F:\actions-runner\_work\build_job\build_job\TPT\Reports\figures\"
-          cp "F:\TPT_Examples\01 Getting Started\Reports\resources\*" "F:\actions-runner\_work\build_job\build_job\TPT\Reports\resources\"
-          
+                    
       - name: Commit and push changes
         run: |
           git config --global user.name 'Ajay6613'
