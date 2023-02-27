@@ -15,12 +15,11 @@ jobs:
       - name: Execute TPT Batch File
         run: F:\actions-runner\_work\build_job\build_job\TPT\First_test_01.bat
         
-      - name: Authenticate with GitHub
-        with:
-         token: ${{ secrets.ACCESS_TOKEN }}
       - name: Report
         run: |
           cd F:\actions-runner\_work\build_job\build_job\TPT\Reports
+          with:
+          token: ${{ secrets.ACCESS_TOKEN }}
       - name: Commit and push changes
         run: |
           git config --global user.name 'Ajay6613'
