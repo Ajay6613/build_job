@@ -28,4 +28,31 @@ jobs:
           git add F:\actions-runner\_work\build_job\build_job\TPT\Reports\.
           git commit -m "Committing report changes"
           git push
+          
+      - name: Send Email on Success
+        if: success()
+        uses: dawidd6/action-send-mail@v3.0.0
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 'TPT batch executed successfully'
+          body: 'The TPT batch file has been executed successfully. You can check the workflow results at ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}.'
+          to: ajaykarthick.murugan1461@cientra.com
+          from: no-reply-no-reply
+          attachments: F:\actions-runner\_work\build_job\build_job\TPT\Reports\*
+
+      - name: Send Email on Failure
+        if: failure()
+        uses: dawidd6/action-send-mail@v3.0.0
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 'TPT batch execution failed'
+          body: 'The TPT batch file failed to execute. You can check the workflow results at ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}.'
+          to: ajaykarthick.murugan1461@cientra.com
+          from: no-reply-no-reply
      
