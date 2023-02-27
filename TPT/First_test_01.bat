@@ -11,4 +11,4 @@ REM Exec-Step: F:\TPT_Examples\01 Getting Started\01 First Example.tpt
 %TPT_HOME%\tpt.exe --batchmode --run build "F:\TPT_Examples\01 Getting Started\01 First Example.tpt" "Default Configuration" --prefvar tpt.date=230224 --prefvar tpt.time=155016
 
 REM Batch-Overview-Step: F:\TPT_Examples\01 Getting Started
-%TPT_HOME%\tpt.exe --batchmode --run report "F:\TPT_Examples\01 Getting Started\testdata" --multiExec --targetdir "F:\actions-runner\_work\build_job\build_job\TPT\Reports"
+%TPT_HOME%\tpt.exe --batchmode --run report "F:\TPT_Examples\01 Getting Started\testdata" --multiExec --targetdir "F:\TPT_Examples\01 Getting Started\Reports"
