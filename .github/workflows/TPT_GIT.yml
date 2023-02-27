@@ -16,7 +16,6 @@ jobs:
         run: F:\actions-runner\_work\build_job\build_job\TPT\First_test_01.bat
         
       - name: Authenticate with GitHub
-        uses: actions/checkout@v2
         with:
          token: ${{ secrets.ACCESS_TOKEN }}
       - name: Report
