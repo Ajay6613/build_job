@@ -1,0 +1,61 @@
+name: TPT
+
+on: [workflow_dispatch]
+
+jobs:
+  execute_tpt:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+            token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Execute TPT Batch File
+        run: F:\actions-runner\_work\build_job\build_job\TPT\First_test_01.bat
+        
+      - name: Report
+        run: |
+          cp "F:\TPT_Examples\01 Getting Started\Reports\*" "F:\actions-runner\_work\build_job\build_job\TPT\Reports\"
+                    
+      - name: Zip Reports Folder
+        run: |
+          cd F:\actions-runner\_work\build_job\build_job\TPT\Reports
+          tar -czvf reports.tar.gz *
+        shell: bash
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'Ajay6613'
+          git config --global user.email 'ajaykarthick158@gmail.com'
+          git add F:\actions-runner\_work\build_job\build_job\TPT\Reports\reports.tar.gz
+          git commit -m "Committing zipped reports changes"
+          git push
+
+          
+      - name: Send Email on Success
+        if: success()
+        uses: dawidd6/action-send-mail@v3.0.0
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 'TPT batch executed successfully'
+          body: 'The TPT batch file has been executed successfully. You can check the workflow results at ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}.'
+          to: ajaykarthick.murugan1461@cientra.com, muralidhar.reddy1655@cientra.com
+          from: no-reply-no-reply
+          attachments: F:\actions-runner\_work\build_job\build_job\TPT\Reports\overview.html
+
+      - name: Send Email on Failure
+        if: failure()
+        uses: dawidd6/action-send-mail@v3.0.0
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 'TPT batch execution failed'
+          body: 'The TPT batch file failed to execute. You can check the workflow results at ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}.'
+          to: ajaykarthick.murugan1461@cientra.com
+          from: no-reply-no-reply
