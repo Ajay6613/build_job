@@ -16,7 +16,7 @@ jobs:
         
       - name: Report
         run: |
-          cp "F:\TPT_Examples\01 Getting Started\Reports\*" "F:\actions-runner\_work\build_job\build_job\TPT\Reports\"
+          xcopy /s /i "F:\TPT_Examples\01 Getting Started\Reports\*" "F:\actions-runner\_work\build_job\build_job\TPT\Reports\"
                     
       - name: Zip Reports Folder
         run: Compress-Archive -Path F:\actions-runner\_work\build_job\build_job\TPT\Reports\* -DestinationPath F:\actions-runner\_work\build_job\build_job\TPT\Reports\reports.zip -Force
