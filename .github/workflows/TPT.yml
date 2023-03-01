@@ -16,7 +16,7 @@ jobs:
         
       - name: Report
         run: |
-          cp -r "F:\TPT_Examples\01 Getting Started\Reports\*" "F:\actions-runner\_work\build_job\build_job\TPT\Reports\"
+          cp "F:\TPT_Examples\01 Getting Started\Reports\*" "F:\actions-runner\_work\build_job\build_job\TPT\Reports\"
                     
       - name: Zip Reports Folder
         run: Compress-Archive -Path F:\actions-runner\_work\build_job\build_job\TPT\Reports\* -DestinationPath F:\actions-runner\_work\build_job\build_job\TPT\Reports\reports.zip -Force
@@ -41,7 +41,7 @@ jobs:
           body: 'The TPT batch file has been executed successfully. You can check the workflow results at ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}.'
           to: ajaykarthick.murugan1461@cientra.com, muralidhar.reddy1655@cientra.com
           from: no-reply-no-reply
-          attachments: F:\actions-runner\_work\build_job\build_job\TPT\Reports\reports.zip
+          attachments: F:\actions-runner\_work\build_job\build_job\TPT\Reports\.html
 
       - name: Send Email on Failure
         if: failure()
