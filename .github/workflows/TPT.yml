@@ -19,20 +19,16 @@ jobs:
           cp "F:\TPT_Examples\01 Getting Started\Reports\*" "F:\actions-runner\_work\build_job\build_job\TPT\Reports\"
                     
       - name: Zip Reports Folder
-        run: |
-          cd F:\actions-runner\_work\build_job\build_job\TPT\Reports
-          tar -czvf reports.tar.gz *
-        shell: bash
+        run: Compress-Archive -Path F:\actions-runner\_work\build_job\build_job\TPT\Reports\* -DestinationPath F:\actions-runner\_work\build_job\build_job\TPT\Reports\reports.zip
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'Ajay6613'
           git config --global user.email 'ajaykarthick158@gmail.com'
-          git add F:\actions-runner\_work\build_job\build_job\TPT\Reports\reports.tar.gz
+          git add F:\actions-runner\_work\build_job\build_job\TPT\Reports\reports.zip
           git commit -m "Committing zipped reports changes"
           git push
-
-          
+    
       - name: Send Email on Success
         if: success()
         uses: dawidd6/action-send-mail@v3.0.0
@@ -57,5 +53,5 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: 'TPT batch execution failed'
           body: 'The TPT batch file failed to execute. You can check the workflow results at ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}.'
-          to: ajaykarthick.murugan1461@cientra.com
+          to: ajaykarthick.murugan1461@cientra.com, muralidhar.reddy1655@cientra@com
           from: no-reply-no-reply
