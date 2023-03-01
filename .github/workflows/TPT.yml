@@ -25,10 +25,11 @@ jobs:
         run: |
           git config --global user.name 'Ajay6613'
           git config --global user.email 'ajaykarthick158@gmail.com'
+          git pull
           git add F:\actions-runner\_work\build_job\build_job\TPT\Reports\reports.zip
           git commit -m "Committing zipped reports changes"
           git push
-    
+
       - name: Send Email on Success
         if: success()
         uses: dawidd6/action-send-mail@v3.0.0
