@@ -1,9 +1,6 @@
 name: Execute TPT Batch File and Send Email Notification
 
-on:
-  push:
-    branches:
-      - main
+on: [workflow_dispatch]
 
 jobs:
   execute_tpt:
