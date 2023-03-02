@@ -5,8 +5,13 @@ on:
     - cron: '*/5 * * * *'  # runs every 5 minutes
 
 jobs:
-  run-tpt:
-    runs-on: windows-latest
+  execute_tpt:
+    runs-on: self-hosted
     steps:
-      - name: Run TPT
-        run: start /wait my-tpt-file.bat
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+            token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Execute TPT Batch File
+        run: F:\actions-runner\_work\build_job\build_job\TPT\First_test_01.bat
