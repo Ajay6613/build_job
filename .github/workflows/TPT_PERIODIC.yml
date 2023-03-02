@@ -1,1 +1,12 @@
+name: TPT_PERIODIC
 
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # runs every 5 minutes
+
+jobs:
+  run-tpt:
+    runs-on: windows-latest
+    steps:
+      - name: Run TPT
+        run: start /wait my-tpt-file.bat
