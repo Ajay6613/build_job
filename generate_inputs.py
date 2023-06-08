@@ -42,5 +42,9 @@ inputs = [
 ]
 
 for input_item in inputs:
-    command = f'echo "::set-input name={input_item["name"]}::{input_item["default"]}"'
+    input_value = input(f"Enter a value for '{input_item['name']}' (default: {input_item['default']}): ")
+    if input_value.strip() == "":
+        # Use the default value if no input is provided
+        input_value = input_item["default"]
+    command = f'echo "::set-input name={input_item["name"]}::{input_value}"'
     os.system(command)
