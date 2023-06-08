@@ -1,17 +1,26 @@
 import yaml
 
-def workflow_dispatch(main.yml): 
+def workflow_dispatch(main.yml):
+  """
+  This function dispatches a workflow based on the inputs in a YAML file.
+
+  Args:
+    yaml_file: The path to the YAML file containing the workflow inputs.
+
+  Returns:
+    None.
+  """
 
   # Load the inputs from the YAML file.
   with open(main.yml, "r") as f:
     inputs = yaml.load(f)
 
   # Dispatch the workflow.
-  workflow.dispatch(**inputs)
+  workflow.run(**inputs)
 
 if __name__ == "__main__":
   # Get the path to the YAML file.
-  yaml_file = input(" .github/workflows/main.yml: ")
+  yaml_file = input(".github/workflows/main.yml: ")
 
   # Dispatch the workflow.
   workflow_dispatch(yaml_file)
