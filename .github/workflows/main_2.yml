@@ -1,0 +1,24 @@
+on: workflow_dispatch
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "The value of input1 is ${{inputs.input1}}"
+      - run: echo "The value of input2 is ${{inputs.input2}}"
+      - run: echo "The value of input3 is ${{inputs.input3}}"
+      - run: echo "The value of input4 is ${{inputs.input4}}"
+      - run: echo "The value of input5 is ${{inputs.input5}}"
+      - run: echo "The value of input6 is ${{inputs.input6}}"
+      - run: echo "The value of input7 is ${{inputs.input7}}"
+      - run: echo "The value of input8 is ${{inputs.input8}}"
+      - run: echo "The value of input9 is ${{inputs.input9}}"
+      - run: echo "The value of input10 is ${{inputs.input10}}"
+      - run: echo "The value of input11 is ${{inputs.input11}}"
+      - run: echo "The value of input12 is ${{inputs.input12}}"
+      - run: echo "The value of input13 is ${{inputs.input13}}"
+      - run: echo "The value of input14 is ${{inputs.input14}}"
+
+withInputs:
+  inputs.json:
