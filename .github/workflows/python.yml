@@ -1,6 +1,7 @@
 import yaml
+from github.workflow import Workflow
 
-def workflow_dispatch(main.yml):
+def dispatch_workflow(yaml_file):main.yml
   """
   This function dispatches a workflow based on the inputs in a YAML file.
 
@@ -12,10 +13,11 @@ def workflow_dispatch(main.yml):
   """
 
   # Load the inputs from the YAML file.
-  with open(main.yml, "r") as f:
-    inputs = yaml.load(f)
+  with open(yaml_file, "r") as f:
+    inputs = yaml.safe_load(f)
 
   # Dispatch the workflow.
+  workflow = Workflow()
   workflow.run(**inputs)
 
 if __name__ == "__main__":
@@ -23,4 +25,4 @@ if __name__ == "__main__":
   yaml_file = input(".github/workflows/main.yml: ")
 
   # Dispatch the workflow.
-  workflow_dispatch(yaml_file)
+  dispatch_workflow(yaml_file)
