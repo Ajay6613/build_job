@@ -1,6 +1,6 @@
 import yaml
 
-def workflow_dispatch(yaml_file):
+def workflow_dispatch(main.yml): 
 
   # Load the inputs from the YAML file.
   with open(main.yml, "r") as f:
