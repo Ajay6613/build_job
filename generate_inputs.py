@@ -40,4 +40,5 @@ inputs = [
 ]
 
 for input_item in inputs:
-    print(f'::set-input name={input_item["name"]}::{input_item["default"]}')
+    command = f'echo "::set-input name={input_item["name"]}::{input_item["default"]}"'
+    os.system(command)
