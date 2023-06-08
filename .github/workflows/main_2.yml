@@ -1,4 +1,8 @@
-on: workflow_dispatch
+name: main_2
+on: 
+  workflow_dispatch:
+    inputs:
+       inputs.json:
 
 jobs:
   my-job:
@@ -20,5 +24,3 @@ jobs:
       - run: echo "The value of input13 is ${{inputs.input13}}"
       - run: echo "The value of input14 is ${{inputs.input14}}"
 
-withInputs:
-  inputs.json:
