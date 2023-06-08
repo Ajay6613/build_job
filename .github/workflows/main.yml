@@ -36,31 +36,31 @@ on:
         type: boolean   
         
        unit6:
-        description: 'unit1'
+        description: 'unit6'
         default: true
         required: true
         type: boolean
 
        unit7:
-        description: 'unit2'
+        description: 'unit7'
         default: true
         required: true
         type: boolean
 
        unit8:
-        description: 'unit3'
+        description: 'unit8'
         default: true
         required: true
         type: boolean
 
        unit9:
-        description: 'unit4'
+        description: 'unit9'
         default: true
         required: true
         type: boolean
 
        unit10:
-        description: 'unit5'
+        description: 'unit10'
         default: true
         required: true
         type: boolean   
