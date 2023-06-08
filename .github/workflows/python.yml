@@ -1,0 +1,17 @@
+import yaml
+
+def workflow_dispatch(yaml_file):
+
+  # Load the inputs from the YAML file.
+  with open(main.yml, "r") as f:
+    inputs = yaml.load(f)
+
+  # Dispatch the workflow.
+  workflow.dispatch(**inputs)
+
+if __name__ == "__main__":
+  # Get the path to the YAML file.
+  yaml_file = input(" .github/workflows/main.yml: ")
+
+  # Dispatch the workflow.
+  workflow_dispatch(yaml_file)
