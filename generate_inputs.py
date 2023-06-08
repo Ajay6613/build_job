@@ -1,3 +1,5 @@
+import os
+
 inputs = [
     {"name": "input1", "default": "default_value1"},
     {"name": "input2", "default": "default_value2"},
