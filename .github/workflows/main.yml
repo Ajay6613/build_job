@@ -1,0 +1,46 @@
+name: Unit-selection
+
+ 
+
+on:
+  workflow_dispatch:
+    inputs:
+       unit1:
+        description: 'unit1'
+        default: true
+        required: true
+        type: boolean
+
+       unit2:
+        description: 'unit2'
+        default: true
+        required: true
+        type: boolean
+
+       unit3:
+        description: 'unit3'
+        default: true
+        required: true
+        type: boolean
+
+       unit4:
+        description: 'unit4'
+        default: true
+        required: true
+        type: boolean
+
+       unit5:
+        description: 'unit5'
+        default: true
+        required: true
+        type: boolean   
+
+ 
+
+        
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
